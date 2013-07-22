@@ -83,6 +83,9 @@ function jsc() {
 
 # GIT
 
+
+
+
 ghpage() {
   git symbolic-ref HEAD refs/heads/gh-pages
   rm .git/index
@@ -120,6 +123,12 @@ alias gpr='git pull --rebase'
 function github() {
   git clone git@github.com:$1.git
 }
+
+source ~/git-completion.bash
+
+__git_complete gco _git_checkout
+__git_complete gup _git_pull
+
 
 # STEP 1: Run tunnel <hostname>
 # STEP 2: Go to network, SOCKS proxy, and specify localhost 9999
