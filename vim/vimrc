@@ -96,4 +96,13 @@ set backspace=indent,eol,start
 let g:ctrlp_map = '<leader>t'
 let g:ctrlp_custom_ignore = '\v[\/](\.git|node_modules)$'
 
-
+" Status line
+set laststatus=2      " always show it
+set statusline=%f     " tail only filename from path
+set statusline+=%h    " help file flag
+set statusline+=%m    " modified flag
+set statusline+=%r    " read only flag
+set statusline+=%=    " left/right separator
+set statusline+=%c,   " cursor column
+set statusline+=%l/%L " cursor line/total lines
+set statusline+=\ %P  " percent through file

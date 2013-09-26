@@ -7,8 +7,5 @@ if has("gui_running")
 
   set columns=180
 
-  if !hasmapto('<Plug>PeepOpen')
-    map <unique> <silent> <leader>t <Plug>PeepOpen
-  endif
 endif
 
