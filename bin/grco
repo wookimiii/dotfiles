@@ -1,26 +1,25 @@
 #!/bin/bash
-BRANCHES=$(git branch -ra | grep $1)
+BRANCHES=$(git branch -ra | grep $1 | grep -v HEAD | awk '{ gsub(/remotes\//,""); print}' | awk '{ gsub(/\*\ /,""); print}' | awk '{ gsub(/[remotes\/]*origin\//,""); print}' | tr " " "\n" | sort -u | awk '/./')
+
 NUM=$(echo "$BRANCHES" | wc -l)
 
 # check for empty
 if [ "X$BRANCHES" = "X" ]
 then
-    echo "No branch matches $1"
+    echo "No branch matches '$1'"
 fi
 
 if [ $NUM -eq 1 ]
 then
-    branch=$(echo $BRANCHES | awk '{ gsub(/remotes\/origin\//,""); print}')
-    git checkout $branch
+    git checkout $BRANCHES
 fi
 
 list=()
 i=0
 if [ $NUM -gt 1 ]
 then
-    while read -r line; do
+    while read -r branch; do
         (( i++ ))
-        branch=$(echo $line | awk '{ gsub(/remotes\/origin\//,""); print}')
         echo "$i: $branch"
         list+=("$branch")
     done <<< "$BRANCHES"

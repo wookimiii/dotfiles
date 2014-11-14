@@ -2,12 +2,13 @@
 
 export EDITOR="vim"
 export RUBY_BREW_PATH=/usr/local/Cellar/ruby/2.0.0-p247/bin
-export PS1='$(_gemset):: \[\033[32m\]\w \[\033[00;34m\]$(echo $(br) $(_suspended)) \$\[\033[00m\] '
-export PATH=$RUBY_BREW_PATH:~/.dotfiles/bin:./node_modules/.bin:/usr/local/sbin:/usr/local/bin:/opt/local/bin:$PATH
+export PS1='$(_gemset):: \[\033[32m\]\w \[\033[00;34m\]$(echo $(br | cut -c 1-16) $(_suspended)) \$\[\033[00m\] '
+export PATH=$RUBY_BREW_PATH:~/.dotfiles/bin:./node_modules/.bin:/usr/local/sbin:/usr/local/bin:/opt/local/bin:$GOTPATH/bin:$PATH
 export GREP_OPTIONS="--color=auto"
 export LANG="en_US.UTF-8"
 export LC_COLLATE="en_US.UTF-8"
 export NODE_PATH=/usr/local/lib/node_modules
+export GOPATH=$HOME/workspace/go
 
 ## app specific secrets
 if [ -e ~/.openredis_secret ]; then source ~/.openredis_secret; fi
