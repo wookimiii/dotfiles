@@ -9,3 +9,6 @@ export NVM_DIR="/Users/akim/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export JIRA_HOST=jira.yp.com
+
+# For nextgen ssh on ssvm
+ssh-add ~/.ssh/np_rsa
