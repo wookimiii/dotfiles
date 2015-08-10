@@ -17,6 +17,7 @@ else
 
   if [[ "$BRANCH" =~ [A-Z]+-([0-9])+ ]]; then
     ticket=$BASH_REMATCH
+    echo Opening ticket: $ticket
   else
       echo "No jira ticket found in the branch"
   fi
@@ -24,5 +25,6 @@ fi
 
 if [ -n "$ticket" ]; then
   URL="http://$JIRA_HOST/browse/$ticket"
+  echo $open $URL
   $open $URL
 fi

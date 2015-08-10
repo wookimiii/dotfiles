@@ -106,3 +106,16 @@ set statusline+=%=    " left/right separator
 set statusline+=%c,   " cursor column
 set statusline+=%l/%L " cursor line/total lines
 set statusline+=\ %P  " percent through file
+
+" Copy Paste
+nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+nmap <F2> :.w !pbcopy<CR><CR>
+vmap <F2> :w !pbcopy<CR><CR>
+
+" EasyAlign
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
