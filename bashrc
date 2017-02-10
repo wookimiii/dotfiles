@@ -1,8 +1,12 @@
 #/bin/bash
 
 export EDITOR="vim"
-export RUBY_BREW_PATH=/usr/local/Cellar/ruby/2.0.0-p247/bin
-export PATH=$RUBY_BREW_PATH:~/.dotfiles/bin:./node_modules/.bin:/usr/bin/:/usr/local/sbin:/usr/local/bin:/opt/local/bin:$GOTPATH/bin:~/emsdk_portable/emscripten/1.35.0:$PATH
+# Set up the PATH
+# Add local node modules
+export PATH=./node_modules/.bin:$PATH
+# add dotfiles, and bin directories
+export PATH=~/.dotfiles/bin:/usr/bin/:/usr/local/sbin:/usr/local/bin:/opt/local/bin:$PATH
+
 export GREP_OPTIONS="--color=auto"
 export LANG="en_US.UTF-8"
 export LC_COLLATE="en_US.UTF-8"
@@ -61,8 +65,3 @@ source ~/.dotfiles/git-completion.bash
 
 __git_complete gco _git_checkout
 __git_complete gup _git_pull
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
