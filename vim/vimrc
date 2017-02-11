@@ -1,121 +1,77 @@
-call pathogen#infect()
+call pathogen#infect() "Use Pathogen for turning on bundles
 
-syntax on
-colorscheme resistor
-filetype indent plugin on
+syntax on                   "syntax highlighting
+colorscheme base16-material "also needs iterm colors stuff https://github.com/kristijanhusak/vim-hybrid-material/tree/master/base16-material
+filetype plugin indent on   "turn on filetype detection
 
-" Windows
-" ============================================================================
+set spelllang=en_us
+set encoding=utf-8
+set fileencoding=utf-8
+set number              "This turns on line numbering
+:highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+set backspace=indent,eol,start " allow backpace to work on auto indents, EOL, and start of lines
+
+let mapleader = ","        "comma is the leader key
+let maplocalleader = ","   "comma is the leader key
+
+" Window/Pane settings
 set splitbelow splitright
 set equalalways
 set winminheight=0
 set winminwidth=0
 
-set spelllang=en_us
-
-let mapleader = ","
-let maplocalleader = ","
-
-:noremap <leader>v :vsp<CR>:enew<CR>:pwd<CR>
-:noremap <leader>s :split<CR>:enew<CR>:pwd<CR>
+" Pane navigation
+:noremap <leader>v :vsp<CR>
 :noremap <leader>l <C-w>l
 :noremap <leader>h <C-w>h
-:noremap <leader>j <C-w>j
 :noremap <leader>k <C-w>k
-:noremap <leader>- <C-W>_
+:noremap <leader>i <C-w>i
+:noremap <leader>c :only<CR>:tabonly
 :noremap <leader>N <C-W>n<C-W>_
-:noremap <leader>? <C-W>n<C-W>H<C-W>q
-:noremap <leader>c :only<CR>:tabonly<CR>
-:noremap J <Esc><C-w>j<C-w>_
-:noremap K <Esc><C-w>k<C-w>_
-:noremap <leader>r :! make %<CR>
-:noremap <leader>R :! jshint %<CR>
-:noremap <leader>/ <C-W>n<C-W>H<C-W>q<C-W>t<C-W>_<C-W>l<C-W>_<C-W>l<C-W>_<C-W>l<C-W>_
-:noremap <leader>n :NERDTreeToggle<CR>
 
-:noremap <leader>b :CtrlPBuffer<CR>
-
+"Git/Tig Mappings
 :noremap <leader>gst :!tig status<CR>
-:noremap <leader>gpr :!git pull --rebase<CR>
 :noremap <leader>gup :!git pull<CR>
 :noremap <leader>gush :!git push<CR>
 
-:noremap <C-c> <ESC>
-:noremap <C-w><C-c> <ESC>
-:noremap <C-w>c <ESC>
-
-" Tabs
-" ============================================================================
-set expandtab
+"Tab Settings
+set expandtab "tabs are expanded into spaces
 set softtabstop=4
 set shiftwidth=4
 set tabstop=4
-set smarttab
-set autoindent
+set smarttab " tabs will use shiftwidth and tab to proper indents
 set textwidth=0
-set showtabline=2
-set laststatus=1
 
-" Searching
-" ============================================================================
-set hlsearch   " highlight search
-set incsearch  " incremental search, search as you type
-set ignorecase " Ignore case when searching
-set smartcase  " Ignore case when searching lowercase
+"Searching
+set hlsearch    " highlight search
+set incsearch   " search as you type
+set ignorecase  " ignore case when search
+set smartcase   " ignore case when search lowercase
 
-" Directories
-" ============================================================================
-" Setup backup location and enable
+"Back up directory
 set backupdir=~/.backup/vim
 set backup
 
-" Set Swap directory
+"Swap Directory
 set directory=~/.backup/vim/swap
 
-" Change file completion to mimic shell behavior
+"Change file completeion to mimic shell behavior
 set wildmenu
 set wildmode=list:longest
-set wildignore+=*/tmp/*,*/.gs/*,*.DS_Store,*.rdb,*.aof,*.sqlite3,*.pid
 
-" Inser New Line
-" ============================================================================
-:noremap <S-Enter> O<ESC>
-:noremap <Enter> o<ESC>
+" Status line
+set laststatus=2
 
-" Set encodings to UTF8
-" ============================================================================
-set encoding=utf-8
-set fileencoding=utf-8
+" Highlight trailing space
+:highlight ExtraWhitespace ctermbg=red guibg=red
+:match ExtraWhitespace /\s\+$/
 
-" set list listchars=tab:>-,trail:.,extends:>
-
-" Allow backspace to work on auto indents, EOL, or start of lines.
-set backspace=indent,eol,start
+" Nerd Tree
+:noremap <leader>n :NERDTreeToggle<CR>
 
 " Change mapping of CtrlP
 let g:ctrlp_map = '<leader>t'
 let g:ctrlp_custom_ignore = '\v[\/](\.git|node_modules)$'
+:noremap <leader>b :CtrlPBuffer<CR>
 
-" Status line
-set laststatus=2      " always show it
-set statusline=%f     " tail only filename from path
-set statusline+=%h    " help file flag
-set statusline+=%m    " modified flag
-set statusline+=%r    " read only flag
-set statusline+=%=    " left/right separator
-set statusline+=%c,   " cursor column
-set statusline+=%l/%L " cursor line/total lines
-set statusline+=\ %P  " percent through file
 
-" Copy Paste
-nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-nmap <F2> :.w !pbcopy<CR><CR>
-vmap <F2> :w !pbcopy<CR><CR>
-
-" EasyAlign
-" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-vmap <Enter> <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)

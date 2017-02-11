@@ -3,7 +3,7 @@
 export EDITOR="vim"
 
 # Terminal Prompt information
-export PS1='\[\033[32m\]\w \[\033[00;34m\]$(echo $(br | cut -c 1-16) $(_suspended)) \$\[\033[00m\] '
+export PS1='\[\033[32m\]\w \[\033[00;34m\]$(echo $(br | cut -c 1-16) \$\[\033[00m\] '
 # Set up the PATH
 # Add local node modules
 export PATH=./node_modules/.bin:$PATH
