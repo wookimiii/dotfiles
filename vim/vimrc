@@ -1,7 +1,7 @@
 call pathogen#infect() "Use Pathogen for turning on bundles
 
 syntax on                   "syntax highlighting
-colorscheme base16-material "also needs iterm colors stuff https://github.com/kristijanhusak/vim-hybrid-material/tree/master/base16-material
+colorscheme codeschool
 filetype plugin indent on   "turn on filetype detection
 
 set spelllang=en_us

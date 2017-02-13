@@ -32,6 +32,9 @@ vack() {
 ## *.sass files aren't usually seacrched.
 alias ack="ack -a"
 
+## Alias tmux to use colors
+alias tmux="TERM=screen-256color-bce tmux"
+
 ## Go up one dir.
 alias ..="cd .."
 
