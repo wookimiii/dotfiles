@@ -74,4 +74,6 @@ let g:ctrlp_map = '<leader>t'
 let g:ctrlp_custom_ignore = '\v[\/](\.git|node_modules)$'
 :noremap <leader>b :CtrlPBuffer<CR>
 
+" Paste toggle
+set pastetoggle=<leader>p
 
