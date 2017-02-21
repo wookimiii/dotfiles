@@ -71,3 +71,6 @@ source ~/.dotfiles/git-completion.bash
 
 __git_complete gco _git_checkout
 __git_complete gup _git_pull
+
+export NVM_DIR="/Users/akim/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
