@@ -74,3 +74,6 @@ __git_complete gup _git_pull
 
 export NVM_DIR="/Users/akim/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+#alias ls to display colors
+ls --color=al > /dev/null 2>&1 && alias ls='ls -F --color=al' || alias ls='ls -GF'

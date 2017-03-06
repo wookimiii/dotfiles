@@ -25,7 +25,7 @@ set winminwidth=0
 :noremap <leader>l <C-w>l
 :noremap <leader>h <C-w>h
 :noremap <leader>k <C-w>k
-:noremap <leader>i <C-w>i
+:noremap <leader>j <C-w>j
 :noremap <leader>c :only<CR>:tabonly
 :noremap <leader>N <C-W>n<C-W>_
 
