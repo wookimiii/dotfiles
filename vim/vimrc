@@ -77,3 +77,5 @@ let g:ctrlp_custom_ignore = '\v[\/](\.git|node_modules)$'
 " Paste toggle
 set pastetoggle=<leader>p
 
+" Fixes syntax highlight for vue files
+autocmd FileType vue syntax sync fromstart

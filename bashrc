@@ -77,3 +77,5 @@ export NVM_DIR="/Users/akim/.nvm"
 
 #alias ls to display colors
 ls --color=al > /dev/null 2>&1 && alias ls='ls -F --color=al' || alias ls='ls -GF'
+
+alias vim='TERM=screen-256color vim'
