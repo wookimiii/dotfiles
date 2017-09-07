@@ -5,6 +5,8 @@ Dotfiles FTW
     git clone git://github.com/wookimiii/dotfiles.git
     mv dotfiles .dotfiles
     ~/.dotfiles/bin/symlink-dotfiles
+    cd .dotifles
+    git submodule update --init --recursive
 
     # You're done!
 
